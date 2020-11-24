@@ -32,6 +32,12 @@ var chartGroup = svg.append("g")
 // interactive bits
 
 // import csv 
-d3.csv("data.csv").then(function(data, err) {
+d3.csv("data.csv").then(function(healthData, err) {
     if (err) throw err;
+
+//parse data
+healthData.forEach(function(data){
+    data
+})
+
 })
