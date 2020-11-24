@@ -62,7 +62,17 @@ healthData.forEach(function(data){
  // append y axis
  chartGroup.append("g")
    .call(leftAxis);
-   
+
+   // append initial circles
+   var circlesGroup = chartGroup.selectAll("circle")
+   .data(hairData)
+   .enter()
+   .append("circle")
+   .attr("cx", d => xLinearScale(d[chosenXAxis]))
+   .attr("cy", d => yLinearScale(d[chosenYAxis]))
+   .attr("r", 20)
+   .attr("fill", "white")
+   .attr("opacity", ".5"); 
 
 })
 
