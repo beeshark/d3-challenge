@@ -27,3 +27,8 @@ var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // 
+//var chosenAxis = 
+
+// interactive bits
+
+// import csv 
