@@ -78,13 +78,15 @@ healthData.forEach(function(data){
    .attr("stroke","black")
    .attr("stroke-width", "1"); 
 
-   var labelsGroup = chartGroup.append("g")
-   .attr("transform", `translate(${width / 2}, ${height + 20})`);
+   var circleLabels = chartGroup.selectAll(null).data(healthData).enter().append("text");
 
-   var hairLengthLabel = labelsGroup.append("text")
+circleLabels
    .attr("x", d => xLinearScale(d.smokes))
    .attr("y", d => yLinearScale(d.income))
-   .classed("active", true)
+   .attr("font-size", "9px")
+   .attr("fill","white")
+   .attr("text-anchor", "middle")
+   .text(function(d) {return d.abbr;})
    .text("Smoking vs Income");
 })
 
