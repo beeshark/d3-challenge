@@ -39,7 +39,30 @@ d3.csv("data.csv").then(function(healthData, err) {
 healthData.forEach(function(data){
     data.income = +data.poverty
     data.smokes = +data.smokes;
-})
+});
+
+ // xLinearScale function above csv import
+ var xLinearScale = xScale(healthData, chosenXAxis);
+
+ // Create y scale function
+ var yLinearScale = d3.scaleLinear()
+   .domain([0, d3.max(healthData, d => d.income)])
+   .range([height, 0]);
+
+ // Create initial axis functions
+ var bottomAxis = d3.axisBottom(xLinearScale);
+ var leftAxis = d3.axisLeft(yLinearScale);
+
+ // append x axis
+ var xAxis = chartGroup.append("g")
+   .classed("x-axis", true)
+   .attr("transform", `translate(0, ${height})`)
+   .call(bottomAxis);
+
+ // append y axis
+ chartGroup.append("g")
+   .call(leftAxis);
+   
 
 })
 
