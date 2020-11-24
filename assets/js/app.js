@@ -74,7 +74,7 @@ healthData.forEach(function(data){
    .attr("cy", d => yLinearScale(d.income))
    .attr("r", 20)
    .attr("fill", "black")
-   .attr("opacity", ".5")
+   .attr("opacity", ".75")
    .attr("stroke","black")
    .attr("stroke-width", "1"); 
 
@@ -87,7 +87,11 @@ circleLabels
    .attr("fill","white")
    .attr("text-anchor", "middle")
    .text(function(d) {return d.abbr;})
-   .text("Smoking vs Income");
-})
 
-// make the circles
+//x axis
+
+
+// y axis 
+
+
+})
