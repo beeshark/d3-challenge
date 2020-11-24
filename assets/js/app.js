@@ -37,7 +37,10 @@ d3.csv("data.csv").then(function(healthData, err) {
 
 //parse data
 healthData.forEach(function(data){
-    data
+    data.income = +data.poverty
+    data.smokes = +data.smokes;
 })
 
 })
+
+// make the circles
