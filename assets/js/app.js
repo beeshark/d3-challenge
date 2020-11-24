@@ -78,6 +78,14 @@ healthData.forEach(function(data){
    .attr("stroke","black")
    .attr("stroke-width", "1"); 
 
+   var labelsGroup = chartGroup.append("g")
+   .attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+   var hairLengthLabel = labelsGroup.append("text")
+   .attr("x", d => xLinearScale(d.smokes))
+   .attr("y", d => yLinearScale(d.income))
+   .classed("active", true)
+   .text("Smoking vs Income");
 })
 
 // make the circles
