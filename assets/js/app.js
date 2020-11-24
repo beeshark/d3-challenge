@@ -65,7 +65,7 @@ healthData.forEach(function(data){
 
    // append initial circles
    var circlesGroup = chartGroup.selectAll("circle")
-   .data(hairData)
+   .data(healthData)
    .enter()
    .append("circle")
    .attr("cx", d => xLinearScale(d[chosenXAxis]))
