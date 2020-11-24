@@ -42,7 +42,9 @@ healthData.forEach(function(data){
 });
 
  // xLinearScale function above csv import
- var xLinearScale = xScale(healthData, chosenXAxis);
+ var xLinearScale = d3.scaleLinear()
+ .domain([0, d3.max(healthData, d => d.smokes)])
+ .range([height,0]);
 
  // Create y scale function
  var yLinearScale = d3.scaleLinear()
@@ -71,8 +73,10 @@ healthData.forEach(function(data){
    .attr("cx", d => xLinearScale(d[chosenXAxis]))
    .attr("cy", d => yLinearScale(d[chosenYAxis]))
    .attr("r", 20)
-   .attr("fill", "white")
-   .attr("opacity", ".5"); 
+   .attr("fill", "black")
+   .attr("opacity", ".5")
+   .attr("stroke","black")
+   .attr("stroke-width", "1"); 
 
 })
 
